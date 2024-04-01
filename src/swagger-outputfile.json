@@ -1,0 +1,243 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "API training",
+    "description": "Description",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/"
+    }
+  ],
+  "paths": {
+    "/Student": {
+      "get": {
+        "tags": [
+          "Student"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Student"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/studentSchema"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{Studentid}": {
+      "get": {
+        "tags": [
+          "Student"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Studentid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Student"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Studentid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Teacher": {
+      "get": {
+        "tags": [
+          "Teacher"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Teacher"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/teacherSchema"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{Teacherid}": {
+      "get": {
+        "tags": [
+          "Teaceher"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Teacherid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Teacher"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Teacherid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "studentSchema": {
+        "type": "object",
+        "properties": {
+          "firstname": {
+            "type": "string",
+            "example": "Pikachu"
+          },
+          "lastname": {
+            "type": "string",
+            "example": "Pokemon"
+          },
+          "age": {
+            "type": "string",
+            "example": "13"
+          }
+        }
+      },
+      "teacherSchema": {
+        "type": "object",
+        "properties": {
+          "firstname": {
+            "type": "string",
+            "example": "Ash"
+          },
+          "lastname": {
+            "type": "string",
+            "example": "Catchum"
+          },
+          "age": {
+            "type": "string",
+            "example": "22"
+          }
+        }
+      }
+    },
+    "examples": {
+      "teacherExmple": {
+        "value": {
+          "firstname": "Ash",
+          "lastname": "Catchum",
+          "age": "22"
+        }
+      },
+      "studentExample": {
+        "value": {
+          "vlaue": {
+            "firstname": "Pikachu",
+            "lastname": "Pokemon",
+            "age": "13"
+          },
+          "summary": "studentdata"
+        }
+      }
+    }
+  }
+}

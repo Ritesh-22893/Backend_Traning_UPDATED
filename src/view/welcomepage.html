@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="welcomepage.css"> -->
+</head>
+<style>
+    * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: cursive;
+}
+
+.container {
+    position: fixed;
+    margin: 4vh 20vh 6vw;
+    height: 80vh;
+    width: 70vw;
+    background-color: rgb(230, 240, 240);
+    border-radius: 3%;
+    box-shadow: 6px -2px 30px rgb(200, 200, 200);
+    display: flex;
+    flex-direction: column;
+    transition: all 2s;
+    transform: translateX(5%);
+}
+
+.exitbtn {
+    position: absolute;
+    margin: 8vh 0 0 60vw;
+    height: 40px;
+    width: 40px;
+    font-family: cursive;
+    font-size: x-large;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.headingText {
+    margin: 12vh 0 0 6vw;
+    color: rgb(162, 85, 165);
+}
+
+.headingText span {
+    color: rgb(117, 170, 48)
+}
+
+.subheading {
+    margin: 4vh 0 0 12vh;
+    letter-spacing: 1px;
+    color: rgb(31, 43, 216);
+}
+
+.paragraph {
+    margin: 3vh 0 0 12vh;
+    width: 45vw;
+    font-size: medium;
+    letter-spacing: 1px;
+    transition: all 0.5s ease-in-out;
+}
+
+.moreinfo {
+    margin-top: 8vh;
+    margin-left: 6vw;
+    text-align: center;
+    height: 40px;
+    width: 200px;
+    font-family: cursive;
+    font-size: medium;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background-color: blueviolet;
+    color: beige;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none
+}
+
+.exploresite {
+    margin-left: 2vw;
+    text-align: center;
+    height: 40px;
+    width: 200px;
+    font-family: cursive;
+    font-size: medium;
+    font-weight: 900;
+    letter-spacing: 1px;
+    background-color: rgb(252, 248, 248);
+    color: blueviolet;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none
+}
+
+.openwelcomepage {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+
+}
+
+.wlcmbtn {
+    font-family: cursive;
+    margin-top: 50vh;
+    margin-left: 80vh;
+    height: 40px;
+    width: 15vw;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(230, 240, 240);
+    color: rgb(121, 7, 121);
+    box-shadow: 3px 1px 40px rgb(63, 40, 63);
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-size: medium;
+
+}
+</style>
+
+<body>
+    <div class="container">
+        <div class="exiticon">
+            <input class="exitbtn" type="button" value="X">
+        </div>
+        <div class="heading">
+            <h1 class="headingText">Welcome to <span>CodingHub.com</span></h1>
+            <h2 class="subheading">Feel free to explore ... </h2>
+        </div>
+        <div class="paragraph">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id repudiandae natus eveniet repellendus
+                inventore dolorum tempore, pariatur omnis repellat. Nesciunt officiis et blanditiis eius voluptatibus
+                quo dolores deleniti odit, quas magni dolorem eos vitae aliquid est quia accusamus veritatis sint beatae
+                dolore inventore ratione minus nisi neque temporibus. In excepturi magni perferendis quisquam commodi
+                magnam quae asperiores ullam quos odit?
+            </p>
+        </div>
+        <div class="additionalInfo">
+            <input class="moreinfo" type="button" value="Continue Reading">
+            <input class="exploresite" type="button" value="Surf Website">
+        </div>
+    </div>
+    <div class="openwelcomepage">
+        <input class="wlcmbtn" type="button" value="Open Welcome Page">
+    </div>
+</body>
+
+<script>
+    
+let btnstate = document.querySelector(".exitbtn");
+let contents = document.querySelector(".container")
+let wlcmpage = document.querySelector(".openwelcomepage")
+wlcmpage.style.display = "none"
+
+console.log(btnstate)
+btnstate.addEventListener("click", () => {
+    contents.style.display = "none";
+    wlcmpage.style.display ="block";
+})
+wlcmpage.addEventListener("click", () => {
+    contents.style.display = "block";
+    wlcmpage.style.display ="none";
+})
+ 
+</script>
+
+<!-- <script src="welcomepage.js"></script> -->
+
+</html>
+
