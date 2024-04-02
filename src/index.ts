@@ -7,12 +7,13 @@ import { User } from "./entity/User"
 import *  as morgan from "morgan"
 import studentroutes from './routes/student.routes';
 import teacherroutes from "./routes/teacher.routes";
-import newUser from "./routes/newUser.routes";
+import newUserroutes from "./routes/newUser.routes";
 import * as cors from 'cors'
 import { AppError } from "./utils/AppError"
 import { error } from "console"
 import * as swaggerFile from './swagger-outputfile.json'
 import * as SwaggerUiExpress from "swagger-ui-express"
+import libraryroutes from './routes/library.routes'
 // import * as swaggerFile from "./swagger-outputfile.json"
 
 AppDataSource.initialize().then(async () => {
@@ -33,7 +34,8 @@ AppDataSource.initialize().then(async () => {
     })
     app.use(studentroutes)
     app.use(teacherroutes)
-    app.use(newUser)
+    app.use(newUserroutes)
+    app.use(libraryroutes)
     app.use('/doc', SwaggerUiExpress.serve, SwaggerUiExpress.setup(swaggerFile))
     //all handle routes
     // app.use('/doc',swaggerUiExpress.serve,swaggerUiExpress.setup(swaggerFile))

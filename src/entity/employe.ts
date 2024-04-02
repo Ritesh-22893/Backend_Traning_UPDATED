@@ -5,7 +5,7 @@ export class employe {
 
     @PrimaryGeneratedColumn()
     id: number
-
+    
     @Column()
     firstName: string
 

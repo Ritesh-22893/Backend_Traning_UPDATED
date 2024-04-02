@@ -45,12 +45,12 @@ export const postdata = async (req: Request, res: Response, next: NextFunction) 
         req.body.profile = req.file.filename
         await TeacherRepo.save(req.body).then(result => {
             res.status(200).json({
-                message: "Teacher data has been fetch successfully",
+                message: "Teacher data has been posted successfully",
                 data: result
             })
         }).catch(error => {
             res.status(400).json({
-                message: "somthing went while fecting data",
+                message: "Error while posting data",
                 error: error
             })
         })
