@@ -57,11 +57,12 @@ export const postdata = async (req: Request, res: Response, next: NextFunction) 
     try {
         console.log(req.body, req.file)
 
-        const urls = await put(req.file.originalname, req.file.buffer, { access: 'public', token: "vercel_blob_rw_gfdPNr0dAAS1c9Jc_uYlkbbJw9DhcSsKKt70jJS4pJhfe7g" });
-        console.log(req.body, req.file, urls)
-        req.body.profile = urls.url
+        // const urls = await put(req.file.originalname, req.file.buffer, { access: 'public', token: "vercel_blob_rw_gfdPNr0dAAS1c9Jc_uYlkbbJw9DhcSsKKt70jJS4pJhfe7g" });
+        // console.log(req.body, req.file, urls)
+        // req.body.profile = urls.url
 
         // req.body.profile = req.file.originalname
+        req.body.employe = [req.body.employe]
         await StudentRepo.save(req.body).then(result => {
             const message = "passkey creation from gmail"
             const option = {
@@ -80,6 +81,7 @@ export const postdata = async (req: Request, res: Response, next: NextFunction) 
                 data: result
             })
         }).catch(error => {
+            console.log(error)
             res.status(400).json({
                 message: "somthing went while fecting data",
                 error: error

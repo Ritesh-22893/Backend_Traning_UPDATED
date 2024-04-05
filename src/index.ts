@@ -5,9 +5,13 @@ import { AppDataSource } from "./data-source"
 import { Routes } from "./routes"
 import { User } from "./entity/User"
 import *  as morgan from "morgan"
+
 import studentroutes from './routes/student.routes';
 import teacherroutes from "./routes/teacher.routes";
 import newUserroutes from "./routes/newUser.routes";
+import employeroutes from "./routes/employe.routes"
+import maganteroutes from "./routes/magante.routes"
+
 import * as cors from 'cors'
 import { AppError } from "./utils/AppError"
 import { error } from "console"
@@ -36,6 +40,9 @@ AppDataSource.initialize().then(async () => {
     app.use(teacherroutes)
     app.use(newUserroutes)
     app.use(libraryroutes)
+    app.use(employeroutes)
+    app.use(maganteroutes)
+
     app.use('/doc', SwaggerUiExpress.serve, SwaggerUiExpress.setup(swaggerFile))
     //all handle routes
     // app.use('/doc',swaggerUiExpress.serve,swaggerUiExpress.setup(swaggerFile))

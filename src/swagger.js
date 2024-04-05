@@ -39,7 +39,7 @@ const doc = {
     host: 'localhost:3000'
 }
 const outputfile = './swagger-outputfile.json'
-const routes = ['./routes/student.routes.ts', './routes/teacher.routes.ts']
+const routes = ['./routes/student.routes.ts', './routes/teacher.routes.ts','./routes/library.routes.ts','./routes/newUser.routes.ts','./routes/employe.routes.ts','./routes/magante.routes.ts' ]
 
 
 swaggerAutogen(outputfile, routes, doc)

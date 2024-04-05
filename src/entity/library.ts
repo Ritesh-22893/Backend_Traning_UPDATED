@@ -1,4 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, JoinColumn, OneToOne } from "typeorm"
+import { ColumnMetadata } from "typeorm/metadata/ColumnMetadata"
+import { Student } from "./student"
+import { join } from "path"
 
 @Entity()
 export class library {
@@ -7,4 +10,8 @@ export class library {
 
     @Column()
     bookname:"string"
+
+    @OneToOne(()=>Student)
+     @JoinColumn()
+     student=Student
 }

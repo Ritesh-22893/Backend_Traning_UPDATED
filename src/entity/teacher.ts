@@ -1,12 +1,12 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
+import { Student } from "./student";
 @Entity()
 
 export class Teacher {
     @PrimaryGeneratedColumn()
     id: string
 
-    @Column()
+    @Column({nullable:true})
     profile: string
 
     @Column()
@@ -26,4 +26,8 @@ export class Teacher {
 
     @UpdateDateColumn()
     updatedate: Date
+
+    @OneToOne(()=>Student)
+    @JoinColumn()
+    student:Student
 }

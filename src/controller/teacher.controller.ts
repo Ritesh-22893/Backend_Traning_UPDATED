@@ -4,15 +4,21 @@ import { Teacher } from "../entity/teacher";
 import { AppError } from "../utils/AppError";
 import { AppDataSource } from "../data-source";
 import { json } from "stream/consumers";
+import { Student } from '../entity/student';
 
 const TeacherRepo = AppDataSource.getRepository(Teacher)
+const StudentRepo = AppDataSource.getRepository(Student)
 //#swagger.tags=['Teacher']
 
 export const getdata = async (req: Request, res: Response, next: NextFunction) => {
     //#swagger.tags=['Teacher']
 
     try {
-        await TeacherRepo.find().then(result => {
+        await TeacherRepo.find({
+            relations:{
+                student:true
+            }
+        }).then(result => {
             res.status(200).json({
                 message: "Data has been fetched successfully",
                 data: result
@@ -41,8 +47,11 @@ export const postdata = async (req: Request, res: Response, next: NextFunction) 
     */
     try {
 
-        console.log(req.body, req.file)
-        req.body.profile = req.file.filename
+        // console.log(req.body, req.file)
+        // req.body.profile = req.file.filename
+        let student= await StudentRepo.findOneBy({id:req.body.student})
+        console.log(student)
+        req.body.student=student
         await TeacherRepo.save(req.body).then(result => {
             res.status(200).json({
                 message: "Teacher data has been posted successfully",

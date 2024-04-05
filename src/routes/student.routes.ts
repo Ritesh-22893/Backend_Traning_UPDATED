@@ -9,5 +9,7 @@ const router = express.Router()  // CRUD (C:CREAT)
 
 router.route('/Student').get(Auth, getdata).post(upload.single('profile'), postdata)
 
+// router.route('/Student').get(Auth, getdata).post(postdata)
+
 router.route('/Student:id').get(getsingledata).delete(deletedata).patch(updatedata)
 export default router

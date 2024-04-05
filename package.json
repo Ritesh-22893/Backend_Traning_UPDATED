@@ -35,7 +35,7 @@
    },
    "scripts": {
       "start": "ts-node src/index.ts",
-      "dev": "nodemon -w *ts src/index.ts",
+      "dev": "node src/swagger.js && nodemon -w *ts src/index.ts",
       "swagger": "node src/swagger.js",
       "typeorm": "typeorm-ts-node-commonjs"
    }

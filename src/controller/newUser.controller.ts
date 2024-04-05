@@ -10,8 +10,12 @@ import * as jwt from "jsonwebtoken"
 // it is used to provide a token as a feedback to the login user when the login becomes successfull
 
 const newUserRepo = AppDataSource.getRepository(newUser)
+    //#swagger.tags=['newUser']
+
 
 export const postdataSave = async (req: Request, res: Response, next: NextFunction) => {
+    //#swagger.tags=['newUser']
+
 
     try {
         await bcrypt.hash(req.body.password, 10, function (err, hashedpassword) {
@@ -46,6 +50,8 @@ export const postdataSave = async (req: Request, res: Response, next: NextFuncti
 }
 
 export const postdatacmp = async (req: Request, res: Response, next: NextFunction) => {
+    //#swagger.tags=['newUser']
+
 
     try {
         let data = await newUserRepo.findOneBy({ email: req.body.email })

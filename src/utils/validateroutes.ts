@@ -18,7 +18,7 @@ const Auth = async (req: RequestCustom, res:Response, next:NextFunction)=>{
         
     }
     catch(error){
-     next(new AppError(400,'Invalid Request'))
+     next(new AppError(400,'Invalid user'))
     }
 }
 export default Auth;

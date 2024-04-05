@@ -1,18 +1,21 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
+import { Student } from "./student"
 
 @Entity()
 export class employe {
 
     @PrimaryGeneratedColumn()
-    id: number
+    id: string
     
     @Column()
-    firstName: string
+    firstname: string
 
     @Column()
-    lastName: string
+    lastname: string
 
     @Column()
     age: number
 
+    @ManyToOne(()=>Student,(Student)=>Student.employe)
+    student:Student
 }
