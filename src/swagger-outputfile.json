@@ -162,7 +162,7 @@
     "/{Teacherid}": {
       "get": {
         "tags": [
-          "Teaceher"
+          "Teacher"
         ],
         "description": "",
         "parameters": [

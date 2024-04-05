@@ -74,7 +74,7 @@ export const postdata = async (req: Request, res: Response, next: NextFunction) 
 
 }
 export const getsingledata = async (req: Request, res: Response, next: NextFunction) => {
-    //#swagger.tags=['Teaceher']
+    //#swagger.tags=['Teacher']
 
     try {
         console.log(req.params)
